@@ -1,0 +1,10 @@
+# Virtual environment
+venv/
+__pycache__/
+
+# Other commonly ignored files and directories
+*.pyc
+*.pyo
+__pycache__/
+.DS_Store
+.vscode/
