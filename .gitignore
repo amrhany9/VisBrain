@@ -1,3 +1,9 @@
+# The Dataset
+deep_learning/BT_Dataset
+
+# Saved Models
+deep_learning/saved_models
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
