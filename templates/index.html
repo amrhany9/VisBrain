@@ -1,0 +1,57 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <title>VisBrain</title>
+</head>
+<body>
+    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="#" class="navbar-brand">Brain Tumor Detection</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Flask Image Upload</h1>
+        
+        {% if filename %}
+            <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+            <br>
+            <p>Uploaded Image: {{ filename }}</p>
+
+            {% if img_shape %}
+                <p>Image Shape: {{ img_shape[0] }} x {{ img_shape[1] }}{% if img_shape|length > 2 %} x {{ img_shape[2] }}{% endif %}</p>
+            {% endif %}
+
+            {% if predicted_label %}
+                <p>Predicted Label: {{ predicted_label }}</p>
+            {% endif %}
+
+            <form action="/test" method="post">
+                <input type="hidden" name="filename" value="{{ filename }}">
+                <input type="submit" value="Test Model">
+            </form>
+
+            <form action="/" method="get">
+                <input type="submit" value="Choose Another Image">
+            </form>
+
+        {% else %}
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".png, .jpg, .jpeg">
+                <input type="submit" value="Upload">
+            </form>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
