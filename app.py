@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, render_template, request, send_from_directory
+from flask import Flask, jsonify, render_template, request, send_from_directory
 from utils import file_handler, model_handler
 
 app = Flask(__name__)
@@ -8,27 +8,27 @@ app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg'}
 
 model = model_handler.load_keras_model('./deep_learning/saved_models/Classification_Model')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    if request.method == 'GET':
-        return render_template('index.html')
+    if 'file' not in request.files:
+        return jsonify(error='No file part')
 
     file = request.files['file']
 
     if file.filename == '':
-        return redirect(request.url)
+        return jsonify(error='No selected file')
 
     result = file_handler.handle_file_upload(file, app.config['UPLOAD_FOLDER'], app.config['ALLOWED_EXTENSIONS'])
 
     if result is not None:
         filename, img_shape = result
-        return render_template('index.html', filename=filename, img_shape=img_shape)
+        return jsonify(filename=filename, img_shape=img_shape)
     else:
-        return render_template('index.html', error='Invalid file format')
+        return jsonify(error='Invalid file format')
 
 @app.route('/test', methods=['POST'])
 def test_model():
@@ -37,7 +37,7 @@ def test_model():
 
     predicted_label = model_handler.handle_model_prediction(file_path, model)
 
-    return render_template('index.html', filename=filename, predicted_label=predicted_label)
+    return jsonify(predicted_label=predicted_label)
 
 # Serve uploaded files
 @app.route('/static/uploads/<filename>')

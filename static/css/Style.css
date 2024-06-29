@@ -1,0 +1,208 @@
+@font-face {
+  font-family: 'Bangla MN';
+  src: local('Bangla MN'), url('../Fonts/bangla-mn.ttf') format('woff');
+}
+
+
+:root
+{
+    --main-color: #07035b;
+    --special-color: #047f9f;
+}
+
+*
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html 
+{
+  scroll-behavior: smooth;
+}
+
+body
+{
+  /* font-family: 'Bangla MN', sans-serif; */
+  font-family: "Anek Bangla", sans-serif;
+}
+/*Container and media quaries*/
+.container
+{
+  padding-left: var(--mainpadding);
+  padding-right: var(--mainpadding);
+  margin-left: auto;
+  margin-right: auto;   
+}
+  
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End glopal rules*/
+
+.container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 60px;
+}
+.container .logo img
+{
+  margin-top: 50px;
+  width: 440px;
+  height: 360px;
+}
+
+.custom-file-upload
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-file-upload input[type="file"] 
+{
+  display: none;
+}
+.custom-file-upload .input_box
+{
+  width: 290px;
+  height: 30px;  
+  padding-left: 10px;
+  border: 1px solid black;
+  display: flex;
+  border-radius: 5px;
+  /* justify-content: center; */
+  align-items: center;
+  font-size: 12px;
+}
+.custom-file-upload .up_button 
+{
+  background-color: var(--special-color);
+  color: white;
+  padding: 0px 9px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease all;  
+}
+
+.custom-file-upload .up_button:hover
+{
+  background-color: #0a4d6e;
+  transform: scale(1.05);
+}
+
+.test_button
+{
+  background-color: var(--main-color);
+  color: white;
+  padding: 0px 9px;  
+  height: 30px;
+  width: 368px;
+  margin-top: -50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease all;
+  cursor: pointer;
+}
+
+.test_button:hover
+{
+  background-color: rgb(15, 84, 163);
+}
+
+/* Style for disabled button */
+.test_button[disabled] {
+  background-color: #ccc;
+  color: #666;
+  cursor: default;
+}
+
+.result-box
+{
+  background-color: #eee;
+  box-shadow: inset 2px;  
+  width: auto;
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 17px;
+  line-height: 1.5;
+  border-radius: 5px;
+  transform: translateY(-50px);
+  display: none;
+}
+
+/* Smart phone dev. */
+@media (max-width: 450px) {
+  .container .logo img
+  {
+    margin-top: 30px;
+    width: 400px;
+    height: 320px;
+  }  
+}
+
+@media (max-width: 400px) {
+  .container .logo img
+  {
+    margin-top: 20px;
+    width: 360px;
+    height: 280px;
+  }
+  .custom-file-upload .input_box
+  {
+    width: 200px;
+  }
+
+  .test_button
+  {
+    width: 275px;
+  }
+}
+
+@media (max-width: 370px) {
+  .container .logo img
+  {
+    margin-top: 20px;
+    width: 320px;
+    height: 245px;
+  }
+  .custom-file-upload .input_box
+  {
+    width: 200px;
+  }
+
+  .test_button
+  {
+    width: 275px;
+  }
+}
