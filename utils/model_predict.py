@@ -9,6 +9,8 @@ def make_prediction(img_path, model):
     img = cv2.resize(img, (224, 224))
     print(type(img), img.shape)
 
+    img = img / 255.0
+
     img_As_Array = np.expand_dims(img, axis=0)
     print(type(img), img.shape)
  

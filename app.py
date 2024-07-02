@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg'}
 
-model = model_handler.load_keras_model('./deep_learning/saved_models/Classification_Model')
+model = model_handler.load_keras_model('./deep_learning/saved_models/basic_cnn_high_epochs')
 
 @app.route('/', methods=['GET'])
 def index():
