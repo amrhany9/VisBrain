@@ -12,6 +12,15 @@
     <title>VisBrain</title>
 </head>
 <body>
+    <div class="navbar">
+        <img id="navbar-image" src="{{ url_for('static', filename='images/logo2.png') }}" alt="VisBrain Logo">
+        <div class="links">
+            <a href="">Home</a>|
+            <a href="">Our Vision</a>|
+            <a href="">About</a>
+        </div>
+    </div>
+
     <div class="container">
         <div class="logo">
             <img id="display-image" src="{{ url_for('static', filename='images/logo.png') }}" alt="VisBrain Logo">
@@ -27,6 +36,10 @@
         <div class="result-box" id="result-box">
             <!-- Prediction result will be shown here -->
         </div>
+    </div>
+
+    <div class="footer">
+        <span>All copyrights reserved Faculty of computer and artificial intelligence Cairo University 2024 ©</span>
     </div>
 
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
