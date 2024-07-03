@@ -202,16 +202,19 @@ body
 {
   position: fixed;
   width: 100%;
+  padding: 5px;
   bottom: 0;
   /* margin-top: 230px; */
   font-family: 'Bangla MN';
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(31, 64, 88) 50%, rgba(28,69,125,1) 159%);
 }
 .footer span
 {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 14px;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
 }
 
 /* Smart phone dev. */

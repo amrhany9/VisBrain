@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/our_model.css') }}">
 
     <title>Our Model - VisBrain</title>
 </head>
@@ -21,8 +21,43 @@
     </div>
 
     <div class="container">
-        <h1>Our Model</h1>
-        <p>Details about our model will go here.</p>
+        <h1>About Our Model</h1>
+
+        <div class="model-section">
+            <h2>Introduction</h2>
+            <p>Our model is designed to classify brain tumors using MRI images. It leverages deep learning techniques to provide accurate and reliable predictions.</p>
+        </div>
+
+        <div class="model-section">
+            <h2>Dataset</h2>
+            <p>The model was trained using a dataset of MRI images, which includes various types of brain tumors such as gliomas, meningiomas, and pituitary tumors, as well as normal brain images. The dataset is carefully annotated and preprocessed to ensure high-quality training data.</p>
+            <p>For more information about the dataset Click <a href="https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset/data">Here</a></p>
+        </div>
+
+        <div class="model-section">
+            <h2>Model Architecture</h2>
+            <p>The model uses a Convolutional Neural Network (CNN) architecture, which is well-suited for image classification tasks. The architecture consists of multiple convolutional layers, pooling layers, and fully connected layers to extract features from the images and make predictions.</p>
+            <div class="arch-image">
+                <img src="{{ url_for('static', filename='images/model_plot.png') }}" alt="Model Architecture" class="model-arch-image">
+            </div>
+        </div>
+
+        <div class="model-section">
+            <h2>Training Process</h2>
+            <p>The training process involves feeding the preprocessed MRI images into the model, optimizing the model's weights using backpropagation, and validating the model's performance on a separate validation dataset. The training process is iterative, with multiple epochs to ensure the model learns effectively from the data.</p>
+            <div class="training-image">
+                <img src="{{ url_for('static', filename='images/loss_accuracy_plot.png') }}" alt="Model Loss Accuracy" class="model-LA-image">
+            </div>
+        </div>
+
+        <div class="model-section">
+            <h2>Performance Metrics</h2>
+            <p>The model's performance is evaluated using metrics such as accuracy, precision, recall, and F1 score. These metrics help us understand how well the model is performing in terms of correctly classifying tumor types and minimizing false positives and false negatives.</p>
+            <div class="metrics-images">
+                <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}" alt="Confusion Metrix" class="model-image">
+                <img src="{{ url_for('static', filename='images/classification_report.png') }}" alt="Classification Report" class="model-image">
+            </div>
+        </div>
     </div>
 
     <div class="footer">

@@ -1,0 +1,196 @@
+@font-face {
+  font-family: 'Bangla MN';
+  src: local('Bangla MN'), url('../Fonts/bangla-mn.ttf') format('woff');
+}
+
+
+:root
+{
+    --main-color: #07035b;
+    --special-color: #047f9f;
+}
+
+*
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html 
+{
+  scroll-behavior: smooth;
+}
+
+body
+{
+  font-family: "Anek Bangla", sans-serif;
+}
+/*Container and media quaries*/
+.container
+{
+  padding-left: var(--mainpadding);
+  padding-right: var(--mainpadding);
+  margin-left: auto;
+  margin-right: auto;   
+}
+  
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 500px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 700px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 900px;
+  }
+}
+/* End glopal rules*/
+
+.navbar
+{
+  padding-left:10px;
+  padding-right:10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(31, 64, 88) 50%, rgba(28,69,125,1) 159%);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar .links
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  margin-right: 5%;
+}
+.navbar .links a
+{
+  text-decoration: none;
+  color: white;
+  font-family: 'Bangla MN';
+  margin-top: 5px;
+}
+.navbar img
+{
+  width: 120px;
+  height: 60px;
+  margin-left: 5%;
+}
+
+.container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  padding: 40px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+}
+
+h1 {
+  text-align: center;
+  width: 90%;
+  font-size: 28px;
+  margin: 30px;
+  color: #333;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.7rem;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.about-section p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.about-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.about-section ul li {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.footer
+{
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+  bottom: 0;
+  /* margin-top: 230px; */
+  font-family: 'Bangla MN';
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(31, 64, 88) 50%, rgba(28,69,125,1) 159%);
+}
+.footer span
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
+}
+
+/* Smart phone dev. */
+@media (max-width: 450px) {
+  .container
+  {
+    width: 400px;
+  }  
+}
+
+@media (max-width: 400px) {
+  .container
+  {
+    width: 360px;
+  }
+}
+
+@media (max-width: 370px) {
+  .container
+  {
+    width: 320px;
+  }
+}
