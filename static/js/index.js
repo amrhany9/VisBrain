@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const fileNameSpan = document.getElementById("fileName");
     const displayImage = document.getElementById("display-image");
     const resultBox = document.getElementById("result-box");
+    const descriptionBox = document.getElementById("description-box");
 
     let uploadedFileName = "";
 
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         displayImage.src = `/static/uploads/${data.filename}`;
                         testButton.disabled = false;
                         resultBox.style.display = 'none';
+                        descriptionBox.style.display = 'none'; // Hide description box
                     }
                 })
                 .catch(error => {
@@ -63,8 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.error) {
                 alert(data.error);
             } else {
-                resultBox.textContent = `Predicted Label: ${data.predicted_label}`;
+                resultBox.innerHTML = `<strong>This Tumor Class:</strong> ${data.predicted_label}`;
                 resultBox.style.display = 'block'; // Show result box
+
+                descriptionBox.innerHTML = `<strong>Description:</strong> ${data.description}`;
+                descriptionBox.style.display = 'block'; // Show description box
+
                 testButton.disabled = true;
             }
         })

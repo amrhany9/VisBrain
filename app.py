@@ -12,6 +12,14 @@ model = model_handler.load_keras_model('./deep_learning/saved_models/basic_cnn_h
 def index():
     return render_template('index.html')
 
+@app.route('/our_model', methods=['GET'])
+def our_model():
+    return render_template('our_model.html')
+
+@app.route('/about_us', methods=['GET'])
+def about_us():
+    return render_template('about_us.html')
+
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -35,9 +43,9 @@ def test_model():
     filename = request.form['filename']
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
-    predicted_label = model_handler.handle_model_prediction(file_path, model)
+    predicted_label, description = model_handler.handle_model_prediction(file_path, model)
 
-    return jsonify(predicted_label=predicted_label)
+    return jsonify(predicted_label=predicted_label, description=description)
 
 # Serve uploaded files
 @app.route('/static/uploads/<filename>')
