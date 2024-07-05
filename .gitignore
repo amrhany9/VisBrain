@@ -7,6 +7,9 @@ deep_learning/saved_models
 # Photos
 Photos
 
+# Demo
+Graduation Project Demo.mp4
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
@@ -38,15 +41,6 @@ pythonenv*
 # VSCode
 .vscode/
 .history/
-
-# Media
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.bmp
-*.ico
-*.webp
 
 # Data
 *.csv
